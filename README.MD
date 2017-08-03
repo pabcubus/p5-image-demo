@@ -9,6 +9,6 @@ $ npm install
 $ serve
 ```
 
-Then, go to your browser and enter to `localhost:3000`.
+Then, go to your browser and enter to `localhost:3000`. To move the character just use the arrow keys.
 
 Have Fun!
