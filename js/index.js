@@ -1,30 +1,44 @@
 var guy;
+var width;
+var height;
 
 function setup() {
 	guy = new Guy(100, 100);
-	createCanvas(window.innerWidth, window.innerHeight);
+	width = windowWidth;
+	height = windowHeight;
+
+	createCanvas(800, 500);
 }
 
 function draw() {
-	frameRate(30);
+	frameRate(40);
 
-	if (keyIsDown(LEFT_ARROW))
-		guy.setDir(2);
-
-	if (keyIsDown(RIGHT_ARROW))
-		guy.setDir(4);
-
-	if (keyIsDown(UP_ARROW))
-		guy.setDir(3);
-
-	if (keyIsDown(DOWN_ARROW))
+	if (keyIsDown(DOWN_ARROW)) {
+		guy.addToDir('y', 1);
 		guy.setDir(1);
+	}
+
+	if (keyIsDown(UP_ARROW)) {
+		guy.addToDir('y', -1);
+		guy.setDir(3);
+	}
+
+	if (keyIsDown(LEFT_ARROW)) {
+		guy.addToDir('x', -1);
+		guy.setDir(2);
+	}
+
+	if (keyIsDown(RIGHT_ARROW)) {
+		guy.addToDir('x', 1);
+		guy.setDir(4);
+	}
 
 	clear();
-	guy.update();
 	guy.show();
 }
 
-function keyReleased() {
-	guy.setDir(0);
+function keyTyped() {
+	if (key == ' ') {
+		guy.shootBullet();
+	}
 }
