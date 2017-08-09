@@ -10,20 +10,20 @@ function Guy(x, y) {
 	this.lastDir = 0;
 	this.bullets = [];
 	this.images = {
-		'0_0': loadImage('images/dir_0_0.jpg'),
-		'1_0': loadImage('images/dir_1_0.jpg'),
-		'1_1': loadImage('images/dir_1_1.jpg'),
-		'1_2': loadImage('images/dir_1_2.jpg'),
-		'2_0': loadImage('images/dir_2_0.jpg'),
-		'2_1': loadImage('images/dir_2_1.jpg'),
-		'2_2': loadImage('images/dir_2_2.jpg'),
-		'3_0': loadImage('images/dir_3_0.jpg'),
-		'3_1': loadImage('images/dir_3_1.jpg'),
-		'3_2': loadImage('images/dir_3_2.jpg'),
-		'4_0': loadImage('images/dir_4_0.jpg'),
-		'4_1': loadImage('images/dir_4_1.jpg'),
-		'4_2': loadImage('images/dir_4_2.jpg'),
-		'bullet': loadImage('images/bullet.jpg')
+		'0_0': loadImage('images/dir_0_0.png'),
+		'1_0': loadImage('images/dir_1_0.png'),
+		'1_1': loadImage('images/dir_1_1.png'),
+		'1_2': loadImage('images/dir_1_2.png'),
+		'2_0': loadImage('images/dir_2_0.png'),
+		'2_1': loadImage('images/dir_2_1.png'),
+		'2_2': loadImage('images/dir_2_2.png'),
+		'3_0': loadImage('images/dir_3_0.png'),
+		'3_1': loadImage('images/dir_3_1.png'),
+		'3_2': loadImage('images/dir_3_2.png'),
+		'4_0': loadImage('images/dir_4_0.png'),
+		'4_1': loadImage('images/dir_4_1.png'),
+		'4_2': loadImage('images/dir_4_2.png'),
+		'bullet': loadImage('images/bullet.png')
 	}
 
 	this.setDir = function(dir) {

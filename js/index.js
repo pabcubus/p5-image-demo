@@ -2,9 +2,14 @@ var guy;
 var width;
 var height;
 var mobile;
+var grass;
+
+function preload() {  // preload() runs once
+  grass = loadImage('images/grass.png');
+  guy = new Guy(100, 100);
+}
 
 function setup() {
-	guy = new Guy(100, 100);
 	mobile = isMobile();
 	width = mobile ? window.innerWidth : (window.innerWidth - 100);
 	height = mobile ? window.innerHeight : (window.innerHeight - 100);
@@ -14,6 +19,7 @@ function setup() {
 
 function draw() {
 	frameRate(40);
+	background(grass);
 
 	if (keyIsDown(DOWN_ARROW)) {
 		guy.addToDir('y', 1);
@@ -35,7 +41,6 @@ function draw() {
 		guy.setDir(4);
 	}
 
-	clear();
 	guy.show();
 }
 
