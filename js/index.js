@@ -6,8 +6,8 @@ var mobile;
 function setup() {
 	guy = new Guy(100, 100);
 	mobile = isMobile();
-	width = mobile ? window.innerWidth : 800;
-	height = mobile ? window.innerHeight : 500;
+	width = mobile ? window.innerWidth : (window.innerWidth - 100);
+	height = mobile ? window.innerHeight : (window.innerHeight - 100);
 
 	createCanvas(width, height);
 }
