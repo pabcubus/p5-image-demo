@@ -3,13 +3,26 @@ function Guy(x, y) {
 	this.y = y;
 	this.dir = 0;
 	this.steps = 5;
+	this.interval = {
+		current: 0,
+		step: 1
+	};
+	this.lastDir = 0;
 	this.bullets = [];
 	this.images = {
-		'0': loadImage('images/dir_0.jpg'),
-		'1': loadImage('images/dir_1.jpg'),
-		'2': loadImage('images/dir_2.jpg'),
-		'3': loadImage('images/dir_3.jpg'),
-		'4': loadImage('images/dir_4.jpg'),
+		'0_0': loadImage('images/dir_0_0.jpg'),
+		'1_0': loadImage('images/dir_1_0.jpg'),
+		'1_1': loadImage('images/dir_1_1.jpg'),
+		'1_2': loadImage('images/dir_1_2.jpg'),
+		'2_0': loadImage('images/dir_2_0.jpg'),
+		'2_1': loadImage('images/dir_2_1.jpg'),
+		'2_2': loadImage('images/dir_2_2.jpg'),
+		'3_0': loadImage('images/dir_3_0.jpg'),
+		'3_1': loadImage('images/dir_3_1.jpg'),
+		'3_2': loadImage('images/dir_3_2.jpg'),
+		'4_0': loadImage('images/dir_4_0.jpg'),
+		'4_1': loadImage('images/dir_4_1.jpg'),
+		'4_2': loadImage('images/dir_4_2.jpg'),
 		'bullet': loadImage('images/bullet.jpg')
 	}
 
@@ -18,7 +31,7 @@ function Guy(x, y) {
 	}
 
 	this.show = function() {
-		image(this.images[this.dir], this.x, this.y);
+		image(this.getImage(this.dir), this.x, this.y);
 
 		for (var i = 0; i < this.bullets.length; i++){
 			var bullet = this.bullets[i];
@@ -37,8 +50,8 @@ function Guy(x, y) {
 
 		var bullet		= {
 			'dir': this.dir,
-			'x': !horizontal ? (this.x + 50) : (this.dir == 2 ? (this.x - 25) : (this.x + 100)),
-			'y': horizontal ? (this.y + 50) : (this.dir == 1 ? (this.y + 105) : (this.y - 30))
+			'x': !horizontal ? (this.x + 38) : (this.dir == 2 ? (this.x - 25) : (this.x + 100)),
+			'y': horizontal ? (this.y + 38) : (this.dir == 1 ? (this.y + 105) : (this.y - 30))
 		};
 
 		this.bullets.push(bullet);
@@ -55,5 +68,23 @@ function Guy(x, y) {
 			bullet.y -= speed;
 		if (bullet.dir == 4)
 			bullet.x += speed;
+	}
+
+	this.stop = function(dir){
+		this.dir = 0;
+	}
+
+	this.getImage = function(dir){
+		dir = ((dir == 0) ? this.lastDir : dir);
+		this.lastDir = dir;
+
+		this.interval.step++;
+		if (this.interval.step == 5) {
+			this.interval.current = (this.interval.current == 2) ? 1 : (this.interval.current + 1);
+			this.interval.step = 0;
+		}
+
+		var string = dir + '_' + (this.dir != 0 ? this.interval.current : 0);
+		return this.images[string];
 	}
 }
