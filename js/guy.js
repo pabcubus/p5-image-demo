@@ -30,6 +30,10 @@ function Guy(x, y) {
 		this.dir = dir;
 	}
 
+	this.getDir = function(dir) {
+		return this.dir;
+	}
+
 	this.show = function() {
 		image(this.getImage(this.dir), this.x, this.y);
 
